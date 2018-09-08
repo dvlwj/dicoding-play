@@ -1,15 +1,14 @@
-package valentino.david.dicodingdavid.ankoLayoutList
+package valentino.david.dicodingdavid.ankoLayoutActivity
 
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import org.jetbrains.anko.*
-import valentino.david.dicodingdavid.MainActivity
+import valentino.david.dicodingdavid.DetailActivity
 import valentino.david.dicodingdavid.R
 
-class ItemListUI : AnkoComponent<ViewGroup> {
-
-    override fun createView(ui: AnkoContext<ViewGroup>) : View = with(ui) {
+class DetailActivityUI : AnkoComponent<DetailActivity> {
+    override fun createView(ui: AnkoContext<DetailActivity>) : View = with(ui) {
         linearLayout {
             lparams(width = matchParent){
                 margin = dip(10)
@@ -17,7 +16,9 @@ class ItemListUI : AnkoComponent<ViewGroup> {
             imageView{
                 setImageResource(R.drawable.img_barca)
                 id = R.id.imageViewClub
-            }.lparams(width = dip(50),height = dip(50))
+            }.lparams(width = wrapContent,height = dip(0)){
+                weight = 1F
+            }
             textView{
                 text = "Barcelona FC"
                 padding = dip(10)

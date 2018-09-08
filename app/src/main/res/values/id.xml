@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="verticalViewClub" type="id"></item>
+    <item name="recycleClub" type="id"></item>
+    <item name="imageViewClub" type="id"></item>
+    <item name="textViewClub" type="id"></item>
+</resources>

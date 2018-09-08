@@ -6,7 +6,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import org.jetbrains.anko.setContentView
+import valentino.david.dicodingdavid.R.id.recycleClub
 import valentino.david.dicodingdavid.ankoLayoutActivity.MainActivityUI
+import android.content.Intent
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainActivityUI().setContentView(this)
-        val list = findViewById<RecyclerView>(R.id.club_list)
+        val list = findViewById<RecyclerView>(R.id.recycleClub)
         initData()
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = RecyclerViewAdapter(this, items){
@@ -32,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             items.add(item.Item(name[i],
                     image.getResourceId(i, 0)))
         }
-
         //Recycle the typed array
         image.recycle()
     }
