@@ -9,30 +9,32 @@ import valentino.david.dicodingdavid.R
 
 class DetailActivityUI : AnkoComponent<DetailActivity> {
     override fun createView(ui: AnkoContext<DetailActivity>) : View = with(ui) {
-        verticalLayout {
-            lparams(width = matchParent){
-                margin = dip(10)
+        scrollView {
+            lparams(width = matchParent, height = matchParent) {
+                isFillViewport = true
+                padding = sp(10)
             }
-            imageView{
-                setImageResource(R.drawable.img_barca)
-                id = R.id.imageViewClub
-            }.lparams(width = wrapContent,height = dip(0)){
-                weight = 1F
-                gravity = Gravity.CENTER
-            }
-            textView{
-                text = "Barcelona FC"
-                padding = dip(10)
-                id = R.id.textViewClub
-            }.lparams(width= wrapContent, height = wrapContent){
-                gravity = Gravity.CENTER
-            }
-            textView{
-                text = "DESKRIPSI"
-                padding = dip(10)
-                id = R.id.descViewClub
-            }.lparams(width = matchParent, height = wrapContent){
-                gravity = Gravity.FILL
+            verticalLayout {
+                lparams(width = matchParent, height = wrapContent) {
+                    margin = sp(10)
+                }
+                imageView {
+                    id = R.id.imageViewClub
+                }.lparams(width = wrapContent, height = sp(128)) {
+                    gravity = Gravity.CENTER
+                }
+                textView {
+                    padding = sp(10)
+                    id = R.id.textViewClub
+                }.lparams(width = wrapContent, height = wrapContent) {
+                    gravity = Gravity.CENTER
+                }
+                textView {
+                    padding = sp(10)
+                    id = R.id.descViewClub
+                }.lparams(width = matchParent, height = wrapContent) {
+                    gravity = Gravity.FILL
+                }
             }
         }
     }

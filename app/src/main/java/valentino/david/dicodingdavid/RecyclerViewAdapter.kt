@@ -12,7 +12,7 @@ import valentino.david.dicodingdavid.ankoLayoutList.ItemListUI
 import android.content.Intent
 import android.support.v4.content.ContextCompat.startActivity
 import android.view.LayoutInflater
-
+import org.jetbrains.anko.startActivity
 
 
 class RecyclerViewAdapter(private val context: Context, private val items: List<item.Item>, private val listener: (item.Item) -> Unit)
@@ -41,13 +41,15 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
             Glide.with(itemView.context).load(items.image).into(image)
             itemView.setOnClickListener {
                 listener(items)
-                val context = it.context
-                val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("name", items.name)
-                intent.putExtra("image", items.image)
-                intent.putExtra("desc", items.desc)
+//                val context = it.context
+//                val intent = Intent(context, DetailActivity::class.java)
+//                intent.putExtra("name", items.name)
+//                intent.putExtra("image", items.image)
+//                intent.putExtra("desc", items.desc)
 //                startActivity(intent)
-                context.startActivity(intent)
+//                context.startActivity(intent)
+                itemView.context.startActivity<DetailActivity>("name" to "${items.name}", "image" to items.image, "desc" to "${items.desc}")
+//                itemView.context.startActivity<DetailActivity>("position" to "$items")
             }
         }
     }
