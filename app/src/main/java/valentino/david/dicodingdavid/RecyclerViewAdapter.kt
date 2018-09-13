@@ -9,6 +9,11 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import org.jetbrains.anko.AnkoContext
 import valentino.david.dicodingdavid.ankoLayoutList.ItemListUI
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
+import android.view.LayoutInflater
+
+
 
 class RecyclerViewAdapter(private val context: Context, private val items: List<item.Item>, private val listener: (item.Item) -> Unit)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -36,6 +41,13 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
             Glide.with(itemView.context).load(items.image).into(image)
             itemView.setOnClickListener {
                 listener(items)
+                val context = it.context
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("name", items.name)
+                intent.putExtra("image", items.image)
+                intent.putExtra("desc", items.desc)
+//                startActivity(intent)
+                context.startActivity(intent)
             }
         }
     }

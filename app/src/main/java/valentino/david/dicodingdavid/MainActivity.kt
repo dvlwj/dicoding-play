@@ -23,18 +23,28 @@ class MainActivity : AppCompatActivity() {
         initData()
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = RecyclerViewAdapter(this, items){
-            val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
-            toast.show()
+//            val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
+//            toast.show()
+//            val context = it
+//            val intent = Intent(this, DetailActivity::class.java)
+//            intent.putExtra("name", it.name);
+//            intent.putExtra("image", it.image);
+//            intent.putExtra("desc", it.desc);
+//            startActivity(intent)
         }
     }
 
     private fun initData(){
         val name = resources.getStringArray(R.array.club_name)
         val image = resources.obtainTypedArray(R.array.club_image)
+        val desc = resources.getStringArray(R.array.club_description)
         items.clear()
         for (i in name.indices) {
-            items.add(item.Item(name[i],
-                    image.getResourceId(i, 0)))
+            items.add(item.Item(
+                    name[i],
+                    image.getResourceId(i, 0),
+                    desc[i]
+            ))
         }
         //Recycle the typed array
         image.recycle()

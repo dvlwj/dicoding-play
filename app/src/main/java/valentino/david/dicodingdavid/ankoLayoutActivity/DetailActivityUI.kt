@@ -9,7 +9,7 @@ import valentino.david.dicodingdavid.R
 
 class DetailActivityUI : AnkoComponent<DetailActivity> {
     override fun createView(ui: AnkoContext<DetailActivity>) : View = with(ui) {
-        linearLayout {
+        verticalLayout {
             lparams(width = matchParent){
                 margin = dip(10)
             }
@@ -18,13 +18,22 @@ class DetailActivityUI : AnkoComponent<DetailActivity> {
                 id = R.id.imageViewClub
             }.lparams(width = wrapContent,height = dip(0)){
                 weight = 1F
+                gravity = Gravity.CENTER
             }
             textView{
                 text = "Barcelona FC"
                 padding = dip(10)
                 id = R.id.textViewClub
-                gravity = Gravity.CENTER_VERTICAL
-            }.lparams(width= wrapContent, height = wrapContent)
+            }.lparams(width= wrapContent, height = wrapContent){
+                gravity = Gravity.CENTER
+            }
+            textView{
+                text = "DESKRIPSI"
+                padding = dip(10)
+                id = R.id.descViewClub
+            }.lparams(width = matchParent, height = wrapContent){
+                gravity = Gravity.FILL
+            }
         }
     }
 }
